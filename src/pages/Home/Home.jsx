@@ -26,18 +26,18 @@ const Home = () => {
   return (
     <div className='p-10'>
       <HeroSection />
-      <div className='py-10 px-28 my-20 bg-sectionBg-light rounded-lg'>
-        <div className="grid justify-center">
+      <div className='py-18 sm:py-10 sm:px-28 sm:my-20 bg-sectionBg-light rounded-lg'>
+        <div className="grid justify-center ">
           <div className='grid justify-center text-center pb-16'>
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white text-center">
               Try Audioally Now
             </h2>
-            <p className="text-gray-500 sm:text-xl dark:text-gray-400 px-52">
+            <p className="text-gray-500 sm:text-xl dark:text-gray-400 px-10 sm:px-52">
               Experience the power of Audioally firsthand! Convert your text into high-quality speech in just a few simple steps. Enter your text below, choose your preferred voice settings, and click 'Convert' to hear the magic.
             </p>
           </div>
         </div>
-        <form className='' onSubmit={handleExport} id='audioallytool'>
+        <form className='px-2 sm:px-0' onSubmit={handleExport} id='audioallytool'>
           <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
             <div className="flex items-center justify-start gap-16 px-3 py-2 border-b dark:border-gray-600">
             
@@ -118,7 +118,7 @@ const Home = () => {
           
 
           <button
-            className="bg-green-default inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+            className="bg-green-default inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
             onClick={handleSpeak}
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
