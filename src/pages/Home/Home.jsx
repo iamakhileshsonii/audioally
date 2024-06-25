@@ -39,7 +39,7 @@ const Home = () => {
         </div>
         <form className='px-2 sm:px-0' onSubmit={handleExport} id='audioallytool'>
           <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-            <div className="flex items-center justify-start gap-16 px-3 py-2 border-b dark:border-gray-600">
+            <div className="block sm:flex items-center justify-start gap-16 px-3 py-2 border-b dark:border-gray-600">
             
               
               <div className="mb-4 flex items-center gap-2">
