@@ -13,15 +13,31 @@ const Home = () => {
   const [pitch, setPitch] = useState(1.0);
   const characterCount = useCharacterCount(text);
 
+  //Handle Speak
   const handleSpeak = (e) => {
     e.preventDefault();
+    stop()
     speak(text, selectedVoice, rate, pitch);
   };
 
+  //Handle Export
   const handleExport = (e) => {
     e.preventDefault();
     console.log('handleExport called');
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
   };
+
+  //Speak on change
+  useEffect(()=>{
+    stop()
+    speak(text, selectedVoice, rate, pitch);
+  },[rate, pitch, selectedVoice])
 
   return (
     <div className='p-10'>
@@ -111,13 +127,14 @@ const Home = () => {
             <div className="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600">
               <p>Characters: {characterCount}</p>
              
-          <p className='bg-red-default text-white px-2 rounded-md hover:cursor-pointer hover:shadow-xl' onClick={stop}>Stop</p>
+          
             </div>
           </div>
 
           
 
-          <button
+         <div className='flex gap-5'>
+         <button
             className="bg-green-default inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
             onClick={handleSpeak}
           >
@@ -126,6 +143,22 @@ const Home = () => {
             </svg>
             Listen
           </button>
+          <button
+            className="bg-red-dark inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+            onClick={stop}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+            </svg>
+            Stop
+          </button>
+          <button type='submit' className="bg-green-dark inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+</svg> Export
+
+          </button>
+         </div>
         </form>
       </div>
       <FeaturedSection />

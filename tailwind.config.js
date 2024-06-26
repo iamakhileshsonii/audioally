@@ -18,12 +18,12 @@ module.exports = {
         red: {
           light: '#3a8dff',
           default: '#E2072F',
-          dark: '#0056b3',
+          dark: '#C80036',
         },
         green: {
           light: '#6fcf97',
           default: '#27ae60',
-          dark: '#219653',
+          dark: '#365E32',
         },
         customRed: {
           light: '#ff6f6f',
