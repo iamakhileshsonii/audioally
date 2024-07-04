@@ -30,6 +30,16 @@ module.exports = {
           DEFAULT: '#e74c3c',
           dark: '#c0392b',
         },
+        darkAccent: {
+          light: '#535353',
+          default: '#2e2e2e',
+          dark: '#161616'
+        },
+        white: {
+          default: '#ffffff',
+          offWhite: '#d8d8d8',
+          dark: '#6d6d6d',
+        },
         sectionBg: {
           light:'#f8f8f8',
         }
