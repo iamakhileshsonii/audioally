@@ -3,6 +3,7 @@ import useSay from '../../hooks/useSay';
 import HeroSection from './components/HeroSection';
 import { useCharacterCount } from '../../hooks/useCharacterCount.js';
 import FeaturedSection from './components/FeaturedSection.jsx';
+import { useWordCount } from '../../hooks/useWordCount.js';
 
 const Home = () => {
   const { speaking, speak, stop, voices } = useSay();
@@ -12,6 +13,7 @@ const Home = () => {
   const [rate, setRate] = useState(1.0);
   const [pitch, setPitch] = useState(1.0);
   const characterCount = useCharacterCount(text);
+  const wordCount = useWordCount(text)
 
   //Handle Speak
   const handleSpeak = (e) => {
@@ -129,8 +131,9 @@ stop()
                 onChange={(e) => setText(e.target.value)}
               ></textarea>
             </div>
-            <div className="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600">
+            <div className="flex items-center gap-5 px-3 py-2 border-b dark:border-gray-600">
               <p>Characters: {characterCount}</p>
+              <p>Words: {wordCount}</p>
              
           
             </div>
